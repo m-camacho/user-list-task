@@ -3,7 +3,6 @@ import { userList } from '../constants';
 const defaultState = {
     currentUser: null,
     userList,
-    selectedUser: null
 };
 
 const appReducer = (state = defaultState, action) => {
@@ -15,8 +14,6 @@ const appReducer = (state = defaultState, action) => {
             }});
         case 'LOGOUT':
             return Object.assign({}, state, { currentUser: null });
-        case 'SELECT_USER':
-            return Object.assign({}, state, { selectedUser: action.payload.user });
         default:
             return state;
     }
