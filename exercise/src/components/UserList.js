@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table';
 
 class UserList extends Component {
     selectUser(user) {
@@ -11,7 +11,7 @@ class UserList extends Component {
     render() {
         const { userList } = this.props;
         return (
-            <div>
+            <div style={{ padding: '20px' }}>
                 <h1>User List</h1> 
                 <Table responsive>
                     <thead>
@@ -34,7 +34,7 @@ class UserList extends Component {
                             ))
                         }
                     </tbody>
-                </Table>;
+                </Table>
             </div>
         );
     }
