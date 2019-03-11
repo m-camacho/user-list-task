@@ -10,12 +10,11 @@ class UserDetail extends Component {
     }
 
     componentDidMount() {
-        const { userList, match, history } = this.props;
-        const found = userList.find(user => user.id == match.params.id);
-        if (found) {
-            this.setState({ selectedUser: found });
+        const { selectedUser, history } = this.props;
+        if (selectedUser) {
+            this.setState({ selectedUser });
         } else {
-            // logic for not found
+            // logic for not found should goes here
             history.push('/randomuser.me')
         }
     }
@@ -41,6 +40,6 @@ class UserDetail extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ userList: state.userList });
+const mapStateToProps = ({ userList }, { match }) => ({ selectedUser: userList.find(user => user.id == match.params.id) });
 
 export default connect(mapStateToProps)(UserDetail);

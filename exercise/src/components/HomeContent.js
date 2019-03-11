@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import { login, logout } from '../actions';
 
@@ -15,6 +16,7 @@ class HomeContent extends Component {
     return (
       <div>
         <Button {...props} />
+        { loggedIn && <Link to="/randomuser.me">Go to Users list</Link> }
       </div>
     );
   }
